@@ -4,3 +4,4 @@
 * Mactype配置文件
 * kcptun安装与配置文件
 * shadowsocks安装与配置文件
+* shadowsocks-libev安装与配置
