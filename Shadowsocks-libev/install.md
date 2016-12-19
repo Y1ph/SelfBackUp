@@ -32,6 +32,9 @@ apt update
 apt install shadowsocks-libev
 ```
 
+## 优化
+参见 [https://shadowsocks.org/en/config/advanced.html](https://shadowsocks.org/en/config/advanced.html)
+
 ## 配置与启动
 采用config文件方式配置。
 ```bash
