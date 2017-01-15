@@ -98,6 +98,8 @@ vim /etc/openvpn/server.conf
 ```
 ### uPNP支持
 ```bash
+apt install linux-igd
+
 cat <<__EOF__ > /etc/openvpn/server.up
 #!/bin/sh
 /usr/sbin/upnpd eth0 tun0
