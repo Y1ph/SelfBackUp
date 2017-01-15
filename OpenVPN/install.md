@@ -96,7 +96,20 @@ cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openv
 gzip -d /etc/openvpn/server.conf.gz
 vim /etc/openvpn/server.conf
 ```
-
+### uPNP支持
+```bash
+cat <<__EOF__ > /etc/openvpn/server.up
+#!/bin/sh
+/usr/sbin/upnpd eth0 tun0
+__EOF__
+ 
+cat <<__EOF__ > /etc/openvpn/server.down
+#!/bin/sh
+/usr/bin/killall upnpd
+__EOF__
+ 
+chmod +x /etc/openvpn/server.up /etc/openvpn/server.down
+```
 ###iptables配置
 ```bash
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
