@@ -1,1 +1,1 @@
--crypt salsa20 -nocomp -datashard 10 -parityshard 3 -conn 1 -mtu 1350 -sndwnd 67 -rcvwnd 201 -dscp 26 -autoexpire 0 -mode fast2
+-crypt salsa20 -nocomp -datashard 10 -parityshard 3 -conn 1 -mtu 1350 -sndwnd 67 -rcvwnd 201 -dscp 34 -autoexpire 0 -mode fast2
