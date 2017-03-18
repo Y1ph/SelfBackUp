@@ -1,30 +1,36 @@
 # Shadowsocks-libev
+
 ## 从Source编译
+
 首先创建工作文件夹：
+
 ```bash
 mkdir /etc/shadowsocks-libev/
 cd /etc/shadowsocks-libev/
 ```
 
 安装依赖：
+
 ```bash
-apt-get install --no-install-recommends build-essential autoconf libtool libssl-dev \
-	gawk debhelper dh-systemd init-system-helpers pkg-config asciidoc xmlto apg libpcre3-dev
+sudo apt-get install --no-install-recommends gettext build-essential autoconf libtool libpcre3-dev asciidoc xmlto libev-dev libudns-dev automake libmbedtls-dev libsodium-dev
 ```
-下载源码：
+下载源码并解压（假设最新版本为3.0.4，详见[https://github.com/shadowsocks/shadowsocks-libev/releases](https://github.com/shadowsocks/shadowsocks-libev/releases)）：
+
 ```bash
-git clone https://github.com/shadowsocks/shadowsocks-libev.git
+export SHADOWSOCKS_VER=3.0.4
+wget https://github.com/shadowsocks/shadowsocks-libev/releases/download/v$SHADOWSOCKS_VER/shadowsocks-libev-$SHADOWSOCKS_VER.tar.gz
+tar xvf shadowsocks-libev-$SHADOWSOCKS_VER.tar.gz
+cd shadowsocks-libev-$SHADOWSOCKS_VER
 ```
 
-编译：
+编译安装：
+
 ```bash
-dpkg-buildpackage -b -us -uc -i
+sudo autoreconf --install --force
+./configure && make
+sudo make install
 ```
-运行：
-```bash
-cd ..
-dpkg -i shadowsocks-libev*.deb
-```
+
 ## 从库中安装
 此方法得到的版本较低，不推荐。
 ```bash
