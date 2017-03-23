@@ -15,4 +15,5 @@ bind "z" "use weapon_knife; use weapon_hegrenade";
 bind "x" "use weapon_knife; use weapon_molotov; use weapon_incgrenade";
 bind "c" "use weapon_knife; use weapon_smokegrenade";
 bind "v" "use weapon_knife; use weapon_flashbang";
+cl_loadout_colorweaponnames 1;
 ```
