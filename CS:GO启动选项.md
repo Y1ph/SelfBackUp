@@ -11,13 +11,11 @@ rate "128000"
 cl_cmdrate "128"
 cl_updaterate "128"
 // Enable the net_graph which gives you performance information, and adjusts its position.
-net_graph "3"
+net_graph "1"
 net_graphpos "2"
 net_graphheight "0"
 // disable automatically switching to a more powerful weapon when it is picked up.
-cl_autoweaponswitch "0"
-// set your maximum allowable ping in CS:GOs matchmaking
-mm_session_max_ping 70
+cl_autowepswitch "0"
 // set your preference on what downloads you allow from a server: all, none, or nosounds
 cl_downloadfilter all
 // Print a message in console that the autoexec.cfg was successfully executed. Useful for troubleshooting and peace of mind.
