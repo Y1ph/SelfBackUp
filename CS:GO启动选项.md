@@ -55,6 +55,6 @@ cl_crosshairusealpha "1"
 cl_fixedcrosshairgap "-4.5"
 
 cl_hud_radar_scale "1.2"
-cl_radar_scale "0.5"
+cl_radar_scale "0.4"
 cl_radar_always_centered "0"
 ```
