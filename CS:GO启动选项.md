@@ -29,7 +29,9 @@ bind "x" "use weapon_knife; use weapon_molotov; use weapon_incgrenade"
 bind "c" "use weapon_knife; use weapon_smokegrenade"
 bind "v" "use weapon_knife; use weapon_flashbang"
 bind "n" "+voicerecord"
-bind "6" "use weapon_knife; drop weapon_c4"
+bind "6" "use weapon_c4; drop"
+cl_teamid_overhead_always 1
++cl_show_team_equipment
 
 cl_loadout_colorweaponnames "1"
 cl_crosshair_drawoutline "0"
