@@ -1,6 +1,6 @@
 + Before Start:
 ```
--noforcemparms -novid -nojoy -high -preload -console -tickrate 128 +fps_max 150 -noaafonts -perfectworld
+-noforcemparms -novid -nojoy -high -preload -console -tickrate 128 +fps_max 150 -noaafonts -perfectworld +exec autoexec.cfg
 ```
 + autoexec.cfg:
 ```
@@ -31,7 +31,9 @@ bind "v" "use weapon_knife; use weapon_flashbang"
 bind "n" "+voicerecord"
 bind "6" "use weapon_c4; drop"
 cl_teamid_overhead_always 1
-+cl_show_team_equipment
+alias +jthrow "+jump;-attack"
+alias -jthrow "-jump"
+bind "alt" "+jthrow"
 
 cl_loadout_colorweaponnames "1"
 cl_crosshair_drawoutline "0"
