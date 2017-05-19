@@ -1,6 +1,6 @@
 + Before Start:
 ```
--noforcemparms -novid -nojoy -high -preload -console -tickrate 128 +fps_max 150 -noaafonts -perfectworld +exec autoexec.cfg
+-noforcemparms -novid -nojoy -high -preload -console -tickrate 128 +fps_max 150 -noaafonts -perfectworld
 ```
 + autoexec.cfg:
 ```
