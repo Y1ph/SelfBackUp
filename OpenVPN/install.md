@@ -42,6 +42,8 @@ make & make install
 apt update
 apt install openvpn
 ```
+可添加源进行更新，详见
+[https://community.openvpn.net/openvpn/wiki/OpenvpnSoftwareRepos](https://community.openvpn.net/openvpn/wiki/OpenvpnSoftwareRepos)
 
 ## 安装证书
 ### 安装easy-rsa:
