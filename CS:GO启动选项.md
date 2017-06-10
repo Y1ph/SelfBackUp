@@ -36,6 +36,14 @@ alias -jthrow "-jump"
 bind "n" "+jthrow"
 
 cl_loadout_colorweaponnames "1"
+
+cl_hud_radar_scale "1.2"
+cl_radar_scale "0.4"
+cl_radar_always_centered "0"
+```
+
++ crosshair1.cfg
+```
 cl_crosshair_drawoutline "0"
 cl_crosshair_dynamic_maxdist_splitratio "0.35"
 cl_crosshair_dynamic_splitalpha_innermod "1"
@@ -58,8 +66,4 @@ cl_crosshairstyle "4"
 cl_crosshairthickness "1.000000"
 cl_crosshairusealpha "1"
 cl_fixedcrosshairgap "-4.5"
-
-cl_hud_radar_scale "1.2"
-cl_radar_scale "0.4"
-cl_radar_always_centered "0"
 ```
