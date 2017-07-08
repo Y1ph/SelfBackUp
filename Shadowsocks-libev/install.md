@@ -54,3 +54,6 @@ vim /etc/default/shadowsocks-libev
 ```bash
 /etc/init.d/shadowsocks-libev start
 ```
+
+## 在线PAC
+https://raw.githubusercontent.com/Zheart/SelfBackUp/master/Shadowsocks-libev/pac-new.txt
