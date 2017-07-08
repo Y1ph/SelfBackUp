@@ -1,0 +1,19 @@
+var proxy = "__PROXY__";
+var direct = 'DIRECT;';
+var socks5 = "SOCKS5 127.0.0.1:1080";
+
+function FindProxyForURL(url, host){
+	if (
+		isPlainHostName(host) ||
+		dnsDomainIs(host, ".tsinghua.edu.cn") ||
+		dnsDomainIs(host, ".cnki.net") ||
+		dnsDomainIs(host, ".minecraft.net") ||
+		dnsDomainIs(host, ".mojang.com") ||
+		isInNet(host, "166.111.0.0", "255.255.0.0") ||
+		isInNet(host, "183.172.0.0", "255.255.0.0") ||
+		isInNet(host, "59.66.0.0", "255.255.0.0")
+	)
+		return direct;
+	else
+		return proxy;
+}
