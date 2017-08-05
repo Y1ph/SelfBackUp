@@ -164,3 +164,66 @@ sysctl -p
 cd /etc/openvpn
 cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf .
 ```
+
+#静态密码模式
+安装与上述相同，无需证书，需要sysctl以及iptables配置。
+##生成静态密码
+```bash
+openvpn --genkey --secret static.key
+```
+静态密码在服务端与客户端均需要。
+##配置文件
+###服务端
+```bash
+dev tun
+port 9033
+proto udp
+ifconfig 10.8.1.1 10.8.1.2
+secret static.key
+cipher AES-256-CBC
+keepalive 10 120
+persist-key
+persist-tun
+verb 3
+push "redirect-gateway def1 bypass-dhcp"
+push "dhcp-option DNS 202.45.84.58"
+push "dhcp-option DNS 208.67.220.220"
+compress lz4-v2
+push "compress lz4-v2"
+
+user nobody
+;group nobody
+status openvpn-status.log
+explicit-exit-notify 1
+sndbuf 393216
+rcvbuf 393216
+push "sndbuf 393216"
+push "rcvbuf 393216"
+tun-mtu 1500
+mssfix 1432
+
+script-security 2
+up /etc/openvpn/server.up
+down /etc/openvpn/server.down
+```
+###客户端
+```bash
+dev tun
+proto udp
+remote YOURSERVERIP 9033
+ifconfig 10.8.1.2 10.8.1.1
+secret static.key
+nobind
+persist-key
+persist-tun
+cipher aes-256-cbc
+verb 3
+tun-mtu 1500
+mssfix 1432
+redirect-gateway def1 bypass-dhcp
+dhcp-option DNS 8.8.8.8
+dhcp-option DNS 8.8.4.4
+compress lz4-v2
+sndbuf 393216
+rcvbuf 393216
+```
