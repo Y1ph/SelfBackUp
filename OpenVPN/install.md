@@ -114,7 +114,7 @@ __EOF__
  
 chmod +x /etc/openvpn/server.up /etc/openvpn/server.down
 ```
-###iptables配置
+### iptables配置
 ```bash
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 ```
@@ -165,15 +165,15 @@ cd /etc/openvpn
 cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf .
 ```
 
-#静态密码模式
+# 静态密码模式
 安装与上述相同，无需证书，需要sysctl以及iptables配置。
-##生成静态密码
+## 生成静态密码
 ```bash
 openvpn --genkey --secret static.key
 ```
 静态密码在服务端与客户端均需要。
-##配置文件
-###服务端
+## 配置文件
+### 服务端
 ```bash
 dev tun
 port 9033
@@ -206,7 +206,7 @@ script-security 2
 up /etc/openvpn/server.up
 down /etc/openvpn/server.down
 ```
-###客户端
+### 客户端
 ```bash
 dev tun
 proto udp
