@@ -1,6 +1,6 @@
 {
   "log": {
-    "loglevel": "debug"
+    "loglevel": "none"
   },
   "inbound": {
     "port": 1080,
