@@ -12,6 +12,17 @@
       "ip": "127.0.0.1"
     }
   },
+  "inboundDetour": [
+    {
+      "protocol": "http",
+      "port": "1081",
+      "tag": "http",
+      "listen": "127.0.0.1",
+      "settings": {
+        "timeout": 0
+      }
+    }
+  ],
   "outbound": {
     "protocol": "vmess",
     "settings": {
