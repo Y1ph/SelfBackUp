@@ -12,12 +12,12 @@ cd /etc/shadowsocks-libev/
 安装依赖：
 
 ```bash
-sudo apt-get install --no-install-recommends gettext build-essential autoconf libtool libpcre3-dev asciidoc xmlto libev-dev libudns-dev automake libmbedtls-dev libsodium-dev
+sudo apt-get install --no-install-recommends gettext build-essential autoconf libtool libpcre3-dev asciidoc xmlto libev-dev libc-ares-dev automake libmbedtls-dev libsodium-dev
 ```
-下载源码并解压（假设最新版本为3.0.4，详见[https://github.com/shadowsocks/shadowsocks-libev/releases](https://github.com/shadowsocks/shadowsocks-libev/releases)）：
+下载源码并解压（假设最新版本为3.1.0，详见[https://github.com/shadowsocks/shadowsocks-libev/releases](https://github.com/shadowsocks/shadowsocks-libev/releases)）：
 
 ```bash
-export SHADOWSOCKS_VER=3.0.4
+export SHADOWSOCKS_VER=3.1.0
 wget https://github.com/shadowsocks/shadowsocks-libev/releases/download/v$SHADOWSOCKS_VER/shadowsocks-libev-$SHADOWSOCKS_VER.tar.gz
 tar xvf shadowsocks-libev-$SHADOWSOCKS_VER.tar.gz
 cd shadowsocks-libev-$SHADOWSOCKS_VER
