@@ -42,7 +42,7 @@
     },
     "streamSettings": {
       "network": "kcp"
-    }
+    },
     "mux": {
       "enabled": true
     }
