@@ -38,11 +38,11 @@
             }
           ]
         }
-      ],
-	  "streamSettings": {
-	    "network": "kcp"
-	  }
+      ]
     },
+    "streamSettings": {
+      "network": "kcp"
+    }
     "mux": {
       "enabled": true
     }
