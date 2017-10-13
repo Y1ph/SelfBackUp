@@ -91,9 +91,9 @@
     "kcpSettings": {
       "mtu": 1350,
       "tti": 20,
-      "uplinkCapacity": 100,
-      "downlinkCapacity": 20,
-      "congestion": true,
+      "uplinkCapacity": 50,
+      "downlinkCapacity": 50,
+      "congestion": false,
       "readBufferSize": 2,
       "writeBufferSize": 2,
       "header": {
