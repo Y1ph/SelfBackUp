@@ -18,10 +18,10 @@
       ],
       "detour": {
         "to": "detour"
-      },
-      "streamSettings": {
-        "network": "kcp"
       }
+    },
+    "streamSettings": {
+      "network": "kcp"
     }
   },
   "inboundDetour": [
@@ -33,10 +33,10 @@
         "default": {
           "level": 1,
           "alterId": 32
-        },
-        "streamSettings": {
-          "network": "kcp"
         }
+      },
+      "streamSettings": {
+        "network": "kcp"
       },
       "allocate": {
         "strategy": "random",
