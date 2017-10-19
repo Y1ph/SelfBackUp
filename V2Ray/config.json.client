@@ -98,8 +98,8 @@
       "mtu": 1350,
       "tti": 10,
       "uplinkCapacity": 2,
-      "downlinkCapacity": 8,
-      "congestion": true,
+      "downlinkCapacity": 2,
+      "congestion": false,
       "readBufferSize": 2,
       "writeBufferSize": 2,
       "header": {
