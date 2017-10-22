@@ -15,33 +15,28 @@
           "alterId": 32,
           "email": "xxxx@xxx.xxx"
         }
-      ],
-      "detour": {
-        "to": "detour"
-      }
+      ]
     },
     "streamSettings": {
-      "network": "kcp"
+      "network": "tcp"
     }
   },
   "inboundDetour": [
     {
       "protocol": "vmess",
-      "port": "20001-20100",
-      "tag": "detour",
+      "port": "PORT2",
       "settings": {
-        "default": {
-          "level": 1,
-          "alterId": 32
-        }
+        "clients": [
+          {
+            "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "level": 1,
+            "alterId": 32,
+            "email": "xxxx@xxx.xxx"
+          }
+        ]
       },
       "streamSettings": {
         "network": "kcp"
-      },
-      "allocate": {
-        "strategy": "random",
-        "concurrency": 2,
-        "refresh": 5
       }
     }
   ],
