@@ -63,7 +63,7 @@
   "routing": {
     "strategy": "rules",
     "settings": {
-      "domainStrategy": "AsIs",
+      "domainStrategy": "IPIfNonMatch",
       "rules": [
         {
           "type": "field",
@@ -85,6 +85,11 @@
             "fe80::/10"
           ],
           "outboundTag": "direct"
+        },
+        {
+          "domain" : [ "tsinghua.edu.cn", "igxe.cn", "c5game.com" ],
+          "outboundTag" : "direct",
+          "type" : "field"
         }
       ]
     }
