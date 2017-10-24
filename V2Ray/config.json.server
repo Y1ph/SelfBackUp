@@ -43,7 +43,8 @@
   "outbound": {
     "protocol": "freedom",
     "settings": {}
-    "outboundDetour": [
+  },
+  "outboundDetour": [
     {
       "protocol": "blackhole",
       "settings": {},
