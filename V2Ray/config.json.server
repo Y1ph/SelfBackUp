@@ -5,7 +5,7 @@
     "loglevel": "none"
   },
   "inbound": {
-    "port": PORT,
+    "port": 8912,
     "protocol": "vmess",
     "settings": {
       "clients": [
@@ -13,7 +13,7 @@
           "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
           "level": 1,
           "alterId": 32,
-          "email": "xxxx@xxx.xxx"
+          "email": "tcp.v2ray@y1ph.cn"
         }
       ]
     },
@@ -24,19 +24,34 @@
   "inboundDetour": [
     {
       "protocol": "vmess",
-      "port": "PORT2",
+      "port": "8913",
       "settings": {
         "clients": [
           {
-            "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "id": "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "level": 1,
             "alterId": 32,
-            "email": "xxxx@xxx.xxx"
+            "email": "kcp.v2ray@y1ph.cn"
           }
         ]
       },
       "streamSettings": {
         "network": "kcp"
+      }
+    },
+    {
+      "protocol": "shadowsocks",
+      "port": "9032",
+      "settings": {
+        "email": "tcp.shadowsocks@y1ph.cn",
+        "method": "chacha20-ietf",
+        "password": PASSWORD,
+        "udp": true,
+        "level": 1,
+        "ota": false
+      },
+      "streamSettings": {
+        "network": "tcp"
       }
     }
   ],
@@ -86,11 +101,11 @@
     "kcpSettings": {
       "mtu": 1350,
       "tti": 20,
-      "uplinkCapacity": 50,
-      "downlinkCapacity": 50,
-      "congestion": false,
-      "readBufferSize": 2,
-      "writeBufferSize": 2,
+      "uplinkCapacity": 2,
+      "downlinkCapacity": 100,
+      "congestion": true,
+      "readBufferSize": 1,
+      "writeBufferSize": 1,
       "header": {
         "type": "srtp"
       }
