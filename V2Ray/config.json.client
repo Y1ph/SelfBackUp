@@ -102,7 +102,7 @@
       "mtu": 1350,
       "tti": 20,
       "uplinkCapacity": 2,
-      "downlinkCapacity": 2,
+      "downlinkCapacity": 100,
       "congestion": true,
       "readBufferSize": 1,
       "writeBufferSize": 1,
