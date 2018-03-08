@@ -44,7 +44,7 @@
       "network": "tcp"
     },
     "mux": {
-      "enabled": true
+      "enabled": false
     }
   },
   "outboundDetour": [
