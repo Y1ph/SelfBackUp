@@ -112,8 +112,8 @@
       "uplinkCapacity": 2,
       "downlinkCapacity": 10,
       "congestion": true,
-      "readBufferSize": 1,
-      "writeBufferSize": 1,
+      "readBufferSize": 2,
+      "writeBufferSize": 2,
       "header": {
         "type": "srtp"
       }
