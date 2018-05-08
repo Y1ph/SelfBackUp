@@ -84,21 +84,9 @@
             "fc00::/7",
             "fe80::/10"
           ],
+	  "domain" : [ "tsinghua.edu.cn", "igxe.cn", "c5game.com", "cnki.net", "geosite:cn", "waifu2x.udp.jp" ],
           "outboundTag": "direct"
-        },
-        {
-          "domain" : [ "tsinghua.edu.cn", "igxe.cn", "c5game.com", "cnki.net", "geosite:cn", "waifu2x.udp.jp" ],
-          "outboundTag" : "direct",
-          "type" : "field"
-        },
-        {
-          "type": "chinaip",
-          "outboundTag": "direct"
-		    },
-		    {
-  		    "type": "chinasites",
-  		    "outboundTag": "direct"
-		    }
+        }
       ]
     }
   },
