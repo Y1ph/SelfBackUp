@@ -56,8 +56,7 @@
   ],
   "dns": {
     "servers": [
-      "localhost",
-      "8.8.8.8"
+      "localhost"
     ]
   },
   "routing": {
@@ -82,7 +81,10 @@
             "203.0.113.0/24",
             "::1/128",
             "fc00::/7",
-            "fe80::/10"
+            "fe80::/10",
+	    "geoip:cn",
+	    "geoip:private",
+	    "10.0.10.66"
           ],
 	  "domain" : [ "tsinghua.edu.cn", "igxe.cn", "c5game.com", "cnki.net", "geosite:cn", "waifu2x.udp.jp" ],
           "outboundTag": "direct"
