@@ -1,64 +1,82 @@
 {
-  "log": {
-    "loglevel": "none"
+  "dns" : {
+    "servers" : [ "localhost" ]
   },
-  "inbound": {
-    "port": 1080,
-    "listen": "127.0.0.1",
-    "protocol": "socks",
-    "settings": {
-      "auth": "noauth",
-      "udp": true,
-      "ip": "127.0.0.1"
-    }
-  },
-  "inboundDetour": [
-    {
-      "protocol": "http",
-      "port": 1081,
-      "tag": "http",
-      "listen": "127.0.0.1",
-      "settings": {
-        "timeout": 0
+  "policy": {
+    "levels": {
+      "1": {
+        "handshake": 4,
+        "connIdle": 300,
+        "uplinkOnly": 2,
+        "downlinkOnly": 5,
+        "statsUserUplink": false,
+        "statsUserDownlink": false,
+        "bufferSize": 10240
       }
+    },
+    "system": {
+        "statsInboundUplink": false,
+        "statsInboundDownlink": false
     }
-  ],
-  "outbound": {
-    "protocol": "vmess",
-    "settings": {
-      "vnext": [
+  },
+  "inbound" : {
+    "listen" : "127.0.0.1",
+    "port" : 1080,
+    "protocol" : "socks",
+    "settings" : {
+      "auth" : "noauth",
+      "ip" : "127.0.0.1",
+      "udp" : true,
+      "timeout" : 60,
+      "userLevel" : 1
+    },
+    "streamSttings":{
+      "sockopt": {
+      	"tcpFastOpen": true
+      }
+    },
+    "sniffing" : {
+      "enabled": true,
+      "destOverride": ["http", "tls"]
+    }
+  },
+  "log" : {
+    "loglevel" : "none"
+  },
+  "outbound" : {
+    "mux" : {
+      "enabled" : false
+    },
+    "protocol" : "vmess",
+    "settings" : {
+      "vnext" : [
         {
-          "address": "SERVERADDRESS",
-          "port": PORT,
-          "users": [
+          "address" : ADDRESS,
+          "port" : PORT,
+          "users" : [
             {
-              "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-              "alterId": 32,
-              "security": "auto"
+              "alterId" : 64,
+              "id" : ID,
+              "security" : "auto"
             }
           ]
         }
       ]
     },
-    "streamSettings": {
-      "network": "tcp"
-    },
-    "mux": {
-      "enabled": false
+    "streamSettings" : {
+      "network" : "tcp",
+      "sockopt": {
+      	"tcpFastOpen": true
+      }
     }
   },
-  "outboundDetour": [
+  "outboundDetour" : [
     {
-      "protocol": "freedom",
-      "settings": {},
-      "tag": "direct"
+      "protocol" : "freedom",
+      "settings" : {},
+      "tag" : "direct"
     }
   ],
-  "dns": {
-    "servers": [
-      "localhost"
-    ]
-  },
   "routing": {
     "strategy": "rules",
     "settings": {
@@ -66,6 +84,47 @@
       "rules": [
         {
           "type": "field",
+          "port": null,
+          "outboundTag": "direct",
+          "ip": null,
+          "domain": [
+            "domain:tsinghua.edu.cn",
+            "domain:igxe.cn",
+            "domain:c5game.com",
+            "domain:cnki.net",
+            "domain:nogeek.top",
+            "domain:utsz.edu.cn",
+            "domain:aria2c.com",
+            "domain:lanzous.com",
+            "domain:adobe.com",
+            "domain:tendawifi.com",
+            "domain:geforce.cn",
+            "domain:epicomic.com",
+            "domain:ieee.org"
+          ]
+        },
+        {
+          "type": "field",
+          "port": null,
+          "outboundTag": "direct",
+          "ip": null,
+          "domain": [
+            "geosite:cn"
+          ]
+        },
+        {
+          "type": "field",
+          "port": null,
+          "outboundTag": "direct",
+          "ip": [
+            "geoip:cn"
+          ],
+          "domain": null
+        },
+        {
+          "type": "field",
+          "port": null,
+          "outboundTag": "direct",
           "ip": [
             "0.0.0.0/8",
             "10.0.0.0/8",
@@ -81,32 +140,11 @@
             "203.0.113.0/24",
             "::1/128",
             "fc00::/7",
-            "fe80::/10",
-	    "geoip:cn",
-	    "geoip:private",
-	    "10.0.10.66"
+            "fe80::/10"
           ],
-	  "domain" : [ "tsinghua.edu.cn", "igxe.cn", "c5game.com", "cnki.net", "geosite:cn", "waifu2x.udp.jp" ],
-          "outboundTag": "direct"
+          "domain": null
         }
       ]
-    }
-  },
-  "transport": {
-    "tcpSettings": {
-      "connectionReuse": true
-    },
-    "kcpSettings": {
-      "mtu": 1350,
-      "tti": 20,
-      "uplinkCapacity": 2,
-      "downlinkCapacity": 10,
-      "congestion": true,
-      "readBufferSize": 2,
-      "writeBufferSize": 2,
-      "header": {
-        "type": "srtp"
-      }
     }
   }
 }
