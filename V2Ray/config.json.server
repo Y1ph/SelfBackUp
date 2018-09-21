@@ -1,47 +1,88 @@
 {
-  "log" : {
+  "log": {
     "access": "/var/log/v2ray/access.log",
     "error": "/var/log/v2ray/error.log",
     "loglevel": "none"
   },
+  "dns": {
+    "servers": [
+      "8.8.8.8",
+      "8.8.4.4"
+    ]
+  },
+  "policy": {
+    "levels": {
+      "1": {
+        "handshake": 2,
+        "connIdle": 60,
+        "uplinkOnly": 1,
+        "downlinkOnly": 2,
+        "bufferSize": 10240
+      }
+    }
+  },
   "inbound": {
-    "port": 8912,
+    "port": PORT,
     "protocol": "vmess",
     "settings": {
       "clients": [
         {
-          "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "id": ID,
+          "level": 1,
+          "alterId": 64,
+          "email": "tcp.v2ray@y1ph.cn"
+        },
+        {
+          "id": ID,
           "level": 1,
           "alterId": 32,
-          "email": "tcp.v2ray@y1ph.cn"
+          "email": "rui.tcp.v2ray@y1ph.cn"
+        },
+        {
+          "id": ID,
+          "level": 1,
+          "alterId": 64,
+          "email": "phone.tcp.v2ray@y1ph.cn"
         }
       ]
     },
     "streamSettings": {
-      "network": "tcp"
+      "network": "tcp",
+      "sockopt": {
+        "mark": 0,
+        "tcpFastOpen": true
+      }
+    },
+    "sniffing": {
+      "enabled": true,
+      "destOverride": ["http", "tls"]
     }
   },
   "inboundDetour": [
     {
       "protocol": "vmess",
-      "port": "8913",
+      "port": PORT2,
       "settings": {
         "clients": [
           {
-            "id": "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "id": ID,
             "level": 1,
-            "alterId": 32,
+            "alterId": 64,
             "email": "kcp.v2ray@y1ph.cn"
           }
         ]
       },
       "streamSettings": {
         "network": "kcp"
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
       }
     },
     {
       "protocol": "shadowsocks",
-      "port": "9032",
+      "port": PORT,
       "settings": {
         "email": "tcp.shadowsocks@y1ph.cn",
         "method": "chacha20-ietf",
@@ -51,7 +92,15 @@
         "ota": false
       },
       "streamSettings": {
-        "network": "tcp"
+        "network": "tcp",
+        "sockopt": {
+          "mark": 0,
+          "tcpFastOpen": true
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
       }
     }
   ],
@@ -68,6 +117,7 @@
   ],
   "routing": {
     "strategy": "rules",
+    "domainStrategy": "IPOnDemand",
     "settings": {
       "rules": [
         {
@@ -96,7 +146,9 @@
   },
   "transport": {
     "tcpSettings": {
-      "connectionReuse": true
+      "header": {
+        "type": "none"
+      }
     },
     "kcpSettings": {
       "mtu": 1350,
@@ -107,7 +159,7 @@
       "readBufferSize": 2,
       "writeBufferSize": 2,
       "header": {
-        "type": "srtp"
+        "type": "dtls"
       }
     }
   }
