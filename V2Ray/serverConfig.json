@@ -23,12 +23,12 @@
   },
   "inbounds": [
   {
-    "port": 443,
+    "port": PORT1,
     "protocol": "vmess",
     "settings": {
       "clients": [
       {
-        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "id": ID,
         "level": 1,
         "alterId": 32,
         "email": "rui.tcp.v2ray@y1ph.cn"
@@ -39,7 +39,7 @@
       "network": "tcp",
       "security": "none",
       "tlsSettings": {
-        "serverName": "xxx.xxx.xxx",
+        "serverName": IP,
         "allowInsecure": false,
         "certificates": [
         {
@@ -59,12 +59,12 @@
     }
   },
   {
-    "port": 8912,
+    "port": PORT2,
     "protocol": "vmess",
     "settings": {
       "clients": [
       {
-        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "id": ID,
         "level": 1,
         "alterId": 32,
         "email": "tcp.v2ray@y1ph.cn"
@@ -78,7 +78,7 @@
       "network": "tcp",
       "security": "none",
       "tlsSettings": {
-        "serverName": "xxx.xxx.xxx",
+        "serverName": IP,
         "allowInsecure": false,
         "certificates": [
         {
@@ -124,12 +124,12 @@
     }
   },
   {
-    "port": 8914,
+    "port": PORT3,
     "protocol": "vmess",
     "settings": {
       "clients": [
       {
-        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "id": ID,
         "level": 1,
         "alterId": 64,
         "email": "phone.tcp.v2ray@y1ph.cn"
@@ -140,7 +140,7 @@
       "network": "tcp",
       "security": "none",
       "tlsSettings": {
-        "serverName": "xxx.xxx.xxx",
+        "serverName": IP,
         "allowInsecure": false,
         "certificates": [
         {
@@ -161,11 +161,11 @@
   },
   {
     "protocol": "vmess",
-    "port": 8913,
+    "port": PORT4,
     "settings": {
       "clients": [
       {
-        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "id": ID,
         "level": 1,
         "alterId": 32,
         "email": "kcp.v2ray@y1ph.cn"
